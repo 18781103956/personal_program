@@ -1,0 +1,78 @@
+package project9;
+
+public class test11 {
+	public static void main(String[] args) {
+	PlainRect pr = new PlainRect();
+	pr.setlength(20);
+	pr.setwidth(10);
+	pr.setstartx(10);
+	pr.setstarty(10);
+	System.out.println("矩形的面积为:"+pr.area()+"矩形的周长为:"+pr.perimeter());
+	System.out.println(pr.isinside(14,9));
+}
+}
+class Rect{
+	private double length;
+	private double width;
+	public  Rect() {
+		super();
+		length=10;width=10;
+	}
+	public  Rect(double length, double width) {
+		super();
+		this.length=length;
+	}
+	public void setlength(double length) {
+		this.length=length;
+	}
+	public void setwidth(double width) {
+		this.width=width;
+	}
+	public double getlength() {
+		return length;
+	}
+	public double getwidth() {
+		return width;
+	}
+	
+	public double area() {
+		return length*width;
+	}
+	public double perimeter() {
+		return (length+width)*2;
+	}
+}
+class PlainRect extends Rect{
+	private double startx;
+	private double starty;
+	public  PlainRect(double length, double width, double startx, double starty) {
+		super(length,width);
+		this.startx=startx;
+		this.starty=starty;
+		
+		
+	}
+	public  PlainRect() {
+		super(0,0);
+		startx=0;
+		starty=0;
+	}
+	public void setstartx(double startx) {
+		this.startx=startx;
+	}
+	public void setstarty(double starty) {
+		this.starty=starty;
+	}
+	public double getstartx() {
+		return startx;
+	}
+	public double getstarty() {
+		return starty;
+	}
+	public boolean isinside(double x,double y) {
+		if(x>=startx&&x<=(startx+getlength())&&y<=starty&&y>=(starty-getwidth())) {
+			return true;
+		}
+		else return false;
+	}
+}
